@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Materi pembelajaran Perkembangan Teknologi Setelah Pandemi COVID-19 2021–2026 untuk siswa SMK TJKT, dilengkapi kuis interaktif 20 soal.">
+  <title>Perkembangan Teknologi 2021–2026 | Materi TJKT</title>
+  <style>
+    :root {
+      --bg: #f4f7fb; --surface: #fff; --text: #172033; --muted: #64748b;
+      --primary: #2457d6; --primary-dark: #193fa6; --line: #e2e8f0;
+      --soft: #eaf0ff; --good: #15803d; --bad: #b91c1c;
+      --shadow: 0 12px 35px rgba(15, 23, 42, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    a { color: inherit; }
+    .hero { color: white; background: radial-gradient(circle at 85% 15%, #4e83ff 0, transparent 28%), linear-gradient(125deg, #10275f, #2457d6 65%, #3977e8); padding: 54px 20px 48px; }
+    .wrap { width: min(1100px, calc(100% - 36px)); margin: auto; }
+    .eyebrow { display: inline-block; padding: 6px 12px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; font-size: .82rem; letter-spacing: .04em; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.12; margin: 18px 0 12px; max-width: 850px; }
+    .hero p { max-width: 720px; color: #e3ebff; font-size: 1.06rem; margin: 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; border: 0; border-radius: 11px; padding: 11px 17px; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; transition: .2s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-light { background: white; color: var(--primary-dark); }
+    .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,.55); color: white; }
+    .layout { display: grid; grid-template-columns: 255px minmax(0, 1fr); gap: 24px; align-items: start; padding: 28px 0 60px; }
+    aside { position: sticky; top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    aside h2 { font-size: 1rem; margin: 0 0 12px; }
+    nav { display: grid; gap: 5px; }
+    nav a { text-decoration: none; padding: 8px 10px; border-radius: 8px; color: #475569; font-size: .93rem; }
+    nav a:hover, nav a.active { background: var(--soft); color: var(--primary-dark); font-weight: 700; }
+    main { min-width: 0; }
+    section { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: clamp(19px, 3vw, 30px); margin-bottom: 22px; box-shadow: var(--shadow); scroll-margin-top: 18px; }
+    h2 { font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.25; margin: 0 0 15px; }
+    h3 { margin: 22px 0 8px; font-size: 1.12rem; }
+    p { margin: 8px 0 13px; }
+    .muted { color: var(--muted); }
+    .callout { border-left: 4px solid var(--primary); background: var(--soft); padding: 13px 16px; border-radius: 8px; margin: 16px 0; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .topic { border: 1px solid var(--line); border-radius: 13px; padding: 16px; background: #fff; }
+    .topic .icon { font-size: 1.65rem; }
+    .topic h3 { margin: 5px 0 6px; }
+    .topic p { margin: 0; color: var(--muted); font-size: .94rem; }
+    ul, ol { padding-left: 22px; }
+    li { margin: 5px 0; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 530px; }
+    th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #f1f5f9; }
+    .quiz-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .progress { height: 9px; border-radius: 99px; background: #e8edf5; overflow: hidden; margin: 13px 0 22px; }
+    .progress span { display: block; height: 100%; width: 0; background: var(--primary); transition: width .25s; }
+    .question { border: 1px solid var(--line); border-radius: 13px; padding: 17px; margin: 14px 0; }
+    .question h3 { margin: 0 0 12px; font-size: 1rem; }
+    .option { display: flex; gap: 10px; padding: 9px 11px; margin: 6px 0; border: 1px solid var(--line); border-radius: 9px; cursor: pointer; }
+    .option:hover { background: #f8faff; border-color: #9db5f7; }
+    .option input { margin-top: 5px; accent-color: var(--primary); }
+    .option.correct { border-color: #86c99a; background: #effaf2; }
+    .option.wrong { border-color: #e5a0a0; background: #fff1f1; }
+    .feedback { font-size: .9rem; margin: 9px 0 0; font-weight: 650; }
+    .result { display: none; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 13px; padding: 18px; margin-top: 18px; }
+    .result.show { display: block; }
+    .score { font-size: 2rem; font-weight: 800; color: var(--primary-dark); }
+    .quiz-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { background: #e8edf5; color: #1e293b; }
+    .small { font-size: .88rem; }
+    footer { text-align: center; color: var(--muted); padding: 0 18px 35px; }
+    @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } aside { position: static; } nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } .hero { padding-top: 38px; } nav { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">BAHAN AJAR SMK • TJKT</span>
+      <h1>Perkembangan Teknologi Setelah Pandemi COVID-19</h1>
+      <p>Menjelajahi perubahan teknologi pada periode 2021–2026: mulai dari AI, jaringan 5G, cloud computing, IoT, hingga keamanan siber.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="#materi">Mulai Belajar</a>
+        <a class="btn btn-outline" href="#kuis">Kerjakan Kuis</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <aside>
+      <h2>Daftar Materi</h2>
+      <nav aria-label="Navigasi materi">
+        <a href="#pengantar">Pengantar</a>
+        <a href="#materi">15 Teknologi</a>
+        <a href="#perbandingan">Perbandingan</a>
+        <a href="#dampak">Dampak Teknologi</a>
+        <a href="#tjkt">Hubungan dengan TJKT</a>
+        <a href="#diskusi">Diskusi Kelas</a>
+        <a href="#kuis">Kuis 20 Soal</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="pengantar">
+        <h2>A. Tujuan Pembelajaran</h2>
+        <p>Setelah mempelajari materi ini, peserta didik diharapkan mampu:</p>
+        <ol>
+          <li>Menjelaskan perkembangan teknologi setelah pandemi COVID-19.</li>
+          <li>Mengidentifikasi teknologi yang berkembang dalam lima tahun terakhir.</li>
+          <li>Memahami pengaruh teknologi terhadap kehidupan dan dunia kerja.</li>
+          <li>Menjelaskan perkembangan komputer, jaringan, internet, dan komunikasi.</li>
+          <li>Mengidentifikasi peluang serta tantangan teknologi masa depan.</li>
+        </ol>
+        <h3>Pendahuluan</h3>
+        <p>Pandemi COVID-19 pada 2020–2021 mengubah cara manusia belajar, bekerja, berbelanja, dan berkomunikasi. Pembatasan pertemuan langsung mendorong masyarakat menggunakan layanan digital seperti konferensi video, pembelajaran daring, pembayaran digital, dan penyimpanan berbasis internet.</p>
+        <p>Setelah pandemi, penggunaan teknologi tersebut terus berkembang. Pandemi bukan penyebab tunggal semua inovasi, tetapi menjadi salah satu faktor yang mempercepat transformasi digital.</p>
+        <div class="callout"><strong>Gagasan utama:</strong> Periode 2021–2026 ditandai oleh semakin luasnya pemanfaatan teknologi digital dalam pendidikan, industri, bisnis, komunikasi, dan kehidupan sehari-hari.</div>
+      </section>
+
+      <section id="materi">
+        <h2>B. 15 Perkembangan Teknologi (2021–2026)</h2>
+        <p class="muted">Pelajari pengertian, contoh, dan penerapan setiap teknologi berikut.</p>
+        <div class="cards">
+          <article class="topic"><div class="icon">🤖</div><h3>1. Artificial Intelligence (AI)</h3><p>Teknologi yang memungkinkan komputer melakukan tugas yang biasanya membutuhkan kecerdasan manusia. Contoh: ChatGPT, Gemini, Copilot, pengenalan suara, dan pembuat gambar AI. Digunakan untuk membantu belajar, menganalisis data, dan membuat konten. Hasil AI tetap perlu diperiksa karena bisa keliru.</p></article>
+          <article class="topic"><div class="icon">📶</div><h3>2. Jaringan 5G</h3><p>Generasi kelima jaringan seluler. Menawarkan potensi kecepatan tinggi, kapasitas lebih besar, dan latensi rendah. Digunakan untuk komunikasi real-time, IoT, streaming, dan kebutuhan industri. Kinerja bergantung pada cakupan, perangkat, dan operator.</p></article>
+          <article class="topic"><div class="icon">☁️</div><h3>3. Cloud Computing</h3><p>Layanan penyimpanan, server, aplikasi, dan komputasi melalui internet. Contoh: Google Drive, OneDrive, Dropbox, AWS, dan Microsoft Azure. Manfaatnya memudahkan akses data, kolaborasi, pencadangan, serta penyediaan server.</p></article>
+          <article class="topic"><div class="icon">🏠</div><h3>4. Internet of Things (IoT)</h3><p>Konsep menghubungkan perangkat fisik ke jaringan agar dapat mengirim dan menerima data. Contoh: CCTV online, lampu pintar, smartwatch, dan sensor suhu. Sensor membaca kondisi, data dikirim ke sistem, lalu sistem dapat memberi informasi atau menjalankan tindakan.</p></article>
+          <article class="topic"><div class="icon">🛡️</div><h3>5. Cybersecurity</h3><p>Upaya melindungi perangkat, jaringan, aplikasi, dan data dari akses atau serangan tidak sah. Ancaman meliputi phishing, malware, ransomware, dan pencurian identitas. Perlindungan: password kuat, 2FA, pembaruan sistem, waspada tautan, dan backup.</p></article>
+          <article class="topic"><div class="icon">📱</div><h3>6. Pembayaran Digital</h3><p>Transaksi keuangan secara elektronik, misalnya QRIS, mobile banking, dompet digital, dan NFC. Membuat transaksi lebih praktis dan mudah dicatat. Pengguna tetap harus memeriksa nama penerima dan tidak membagikan PIN atau OTP.</p></article>
+          <article class="topic"><div class="icon">🛒</div><h3>7. E-Commerce dan Bisnis Digital</h3><p>Jual beli barang atau jasa melalui internet. Contohnya marketplace, toko online, pelacakan pengiriman, promosi media sosial, dan live shopping. Teknologi ini memperluas pasar sekaligus meningkatkan persaingan usaha.</p></article>
+          <article class="topic"><div class="icon">🚗</div><h3>8. Kendaraan Listrik</h3><p>Kendaraan yang menggunakan energi listrik untuk menggerakkan motor. Komponen penting meliputi baterai, motor listrik, controller, sistem pengisian, dan Battery Management System (BMS). Tantangannya termasuk infrastruktur pengisian dan pengelolaan baterai.</p></article>
+          <article class="topic"><div class="icon">🦾</div><h3>9. Robotika dan Otomatisasi</h3><p>Robotika mempelajari perancangan dan pengoperasian robot. Otomatisasi menggunakan teknologi untuk menjalankan pekerjaan dengan sedikit campur tangan manusia. Contoh: robot industri, mesin pengemas, dan sistem produksi otomatis.</p></article>
+          <article class="topic"><div class="icon">📊</div><h3>10. Big Data dan Analisis Data</h3><p>Pengolahan kumpulan data berukuran besar dan kompleks untuk menemukan pola serta membantu pengambilan keputusan. Contoh penerapan: analisis penjualan marketplace, data nilai siswa, dan kebutuhan pelanggan.</p></article>
+          <article class="topic"><div class="icon">📡</div><h3>11. Wi-Fi 6, 6E, dan 7</h3><p>Generasi teknologi jaringan nirkabel yang terus meningkatkan kapasitas dan efisiensi. Wi-Fi 6 lebih efisien saat banyak perangkat terhubung; Wi-Fi 6E menambah pita 6 GHz di wilayah yang mengizinkan; Wi-Fi 7 membawa peningkatan kapasitas dan performa.</p></article>
+          <article class="topic"><div class="icon">💡</div><h3>12. Fiber Optic</h3><p>Teknologi transmisi data menggunakan cahaya melalui serat kaca atau plastik khusus. Keunggulannya adalah kapasitas besar, kecepatan tinggi, dan tidak mudah terganggu interferensi elektromagnetik. Digunakan pada internet rumah, backbone, ISP, dan pusat data.</p></article>
+          <article class="topic"><div class="icon">🖥️</div><h3>13. Virtualisasi dan Container</h3><p>Virtualisasi memungkinkan satu komputer fisik menjalankan beberapa mesin virtual. Contoh: VirtualBox, VMware, dan Hyper-V. Container seperti Docker mengemas aplikasi beserta dependensinya; Kubernetes membantu mengelola container dalam skala besar.</p></article>
+          <article class="topic"><div class="icon">⚡</div><h3>14. Edge Computing</h3><p>Pemrosesan data dilakukan lebih dekat dengan sumber data, bukan selalu dikirim ke cloud pusat. Contoh: kamera yang mendeteksi gerakan langsung dan sensor industri. Manfaatnya mengurangi keterlambatan dan beban jaringan.</p></article>
+          <article class="topic"><div class="icon">🛰️</div><h3>15. Internet Satelit</h3><p>Internet yang disalurkan melalui satelit, termasuk satelit orbit rendah bumi (LEO). Dapat menjadi pilihan untuk wilayah yang sulit dijangkau kabel atau jaringan seluler. Kualitasnya dipengaruhi lokasi, cuaca, perangkat, dan kondisi layanan.</p></article>
+        </div>
+      </section>
+
+      <section id="perbandingan">
+        <h2>C. Perbandingan Sebelum dan Sesudah Pandemi</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bidang</th><th>Sebelum pandemi</th><th>Perkembangan 2021–2026</th></tr></thead>
+            <tbody>
+              <tr><td>Pendidikan</td><td>Tatap muka dominan</td><td>Pembelajaran digital dan hybrid lebih umum</td></tr>
+              <tr><td>Komunikasi</td><td>Telepon dan pesan</td><td>Video conference dan kolaborasi online</td></tr>
+              <tr><td>Kecerdasan buatan</td><td>Penggunaan AI generatif terbatas</td><td>AI generatif semakin dikenal dan digunakan</td></tr>
+              <tr><td>Penyimpanan</td><td>Hard disk dan flashdisk banyak digunakan</td><td>Cloud storage semakin umum</td></tr>
+              <tr><td>Pembayaran</td><td>Tunai dan kartu</td><td>QRIS dan dompet digital semakin luas</td></tr>
+              <tr><td>Jaringan</td><td>4G dan Wi-Fi generasi sebelumnya</td><td>Perluasan 5G dan Wi-Fi generasi baru</td></tr>
+              <tr><td>Server</td><td>Server fisik banyak digunakan</td><td>Cloud dan virtualisasi semakin umum</td></tr>
+              <tr><td>Industri</td><td>Banyak proses manual</td><td>Otomatisasi dan analisis data meningkat</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted">Catatan: teknologi tersebut tidak semuanya ditemukan setelah pandemi. Sebagian telah ada sebelumnya, tetapi pemanfaatan dan adopsinya semakin meluas.</p>
+      </section>
+
+      <section id="dampak">
+        <h2>D. Dampak Perkembangan Teknologi</h2>
+        <div class="cards">
+          <div class="topic"><h3>✅ Dampak Positif</h3><ul><li>Komunikasi lebih mudah dan cepat.</li><li>Akses informasi dan pembelajaran lebih luas.</li><li>Pekerjaan dapat dilakukan lebih efisien.</li><li>Muncul peluang usaha dan pekerjaan baru.</li><li>Proses industri menjadi lebih terukur.</li></ul></div>
+          <div class="topic"><h3>⚠️ Tantangan dan Dampak Negatif</h3><ul><li>Kejahatan siber dan kebocoran data.</li><li>Hoaks dan informasi yang menyesatkan.</li><li>Ketergantungan pada perangkat digital.</li><li>Kesenjangan akses teknologi.</li><li>Otomatisasi mengubah kebutuhan keterampilan kerja.</li></ul></div>
+        </div>
+      </section>
+
+      <section id="tjkt">
+        <h2>E. Hubungan dengan Kompetensi TJKT</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Teknologi</th><th>Kompetensi yang berkaitan</th></tr></thead>
+            <tbody>
+              <tr><td>AI</td><td>Pemrograman dan pengolahan data</td></tr>
+              <tr><td>5G</td><td>Jaringan dan telekomunikasi</td></tr>
+              <tr><td>Cloud computing</td><td>Administrasi server dan layanan cloud</td></tr>
+              <tr><td>IoT</td><td>Konfigurasi jaringan dan sensor</td></tr>
+              <tr><td>Cybersecurity</td><td>Keamanan jaringan dan sistem</td></tr>
+              <tr><td>Fiber optic</td><td>Instalasi dan pengujian jaringan optik</td></tr>
+              <tr><td>Wi-Fi 6/7</td><td>Konfigurasi jaringan wireless</td></tr>
+              <tr><td>Virtualisasi</td><td>Instalasi server dan sistem operasi virtual</td></tr>
+              <tr><td>Edge computing</td><td>Arsitektur jaringan dan komputasi</td></tr>
+              <tr><td>Internet satelit</td><td>Teknologi komunikasi data</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Contoh proyek praktik di sekolah</h3>
+        <ol>
+          <li>Instalasi Debian Linux pada VirtualBox.</li>
+          <li>Konfigurasi IP address statis.</li>
+          <li>Instalasi Apache2 sebagai web server.</li>
+          <li>Menghubungkan komputer melalui jaringan LAN.</li>
+          <li>Menguji konektivitas menggunakan perintah <code>ping</code>.</li>
+          <li>Melakukan pengujian keamanan dasar pada jaringan laboratorium.</li>
+        </ol>
+      </section>
+
+      <section id="diskusi">
+        <h2>F. Pertanyaan Pemantik Diskusi</h2>
+        <ol>
+          <li>Mengapa penggunaan teknologi digital semakin meningkat setelah pandemi?</li>
+          <li>Apakah AI dapat menggantikan seluruh pekerjaan manusia? Jelaskan alasanmu.</li>
+          <li>Apa risiko jika kita terlalu bergantung pada teknologi?</li>
+          <li>Teknologi apa yang paling dibutuhkan oleh seorang teknisi jaringan komputer?</li>
+          <li>Jika menjadi teknisi jaringan, teknologi apa yang ingin kamu pelajari lebih dalam?</li>
+        </ol>
+        <div class="callout"><strong>Kesimpulan:</strong> Siswa TJKT perlu memahami cara kerja teknologi, manfaat, risiko, serta keterampilan praktik yang dibutuhkan dunia kerja.</div>
+      </section>
+
+      <section id="kuis">
+        <div class="quiz-top">
+          <div><h2>G. Kuis Evaluasi</h2><p class="muted">20 soal pilihan ganda • 5 opsi jawaban • Pilih satu jawaban terbaik.</p></div>
+          <strong id="answeredCount">0/20 dijawab</strong>
+        </div>
+        <div class="progress" aria-label="Progres pengerjaan"><span id="progressBar"></span></div>
+        <form id="quizForm">
+          <div id="questions"></div>
+          <div class="quiz-actions">
+            <button class="btn btn-primary" type="submit" id="submitBtn">Periksa Jawaban</button>
+            <button class="btn btn-secondary" type="button" id="resetBtn">Ulangi Kuis</button>
+          </div>
+        </form>
+        <div class="result" id="result" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p><strong>Materi Pembelajaran TJKT</strong> · Perkembangan Teknologi 2021–2026</p>
+    <p class="small">Gunakan teknologi secara bijak, aman, dan bertanggung jawab.</p>
+  </footer>
+
+  <script>
+    const quizData = [
+      { q: "Salah satu faktor yang mempercepat perkembangan teknologi digital pada tahun 2021–2026 adalah ....", o: ["Berkurangnya penggunaan komputer", "Pandemi COVID-19 yang mendorong transformasi digital", "Menurunnya kebutuhan internet", "Berkurangnya penggunaan smartphone", "Penghentian perkembangan teknologi"], a: 1, e: "Pandemi mendorong penggunaan pembelajaran daring, kerja jarak jauh, dan layanan digital." },
+      { q: "Teknologi yang memungkinkan komputer melakukan pekerjaan yang biasanya membutuhkan kecerdasan manusia disebut ....", o: ["Internet of Things", "Cloud Computing", "Artificial Intelligence", "Fiber Optic", "Virtual Reality"], a: 2, e: "Artificial Intelligence (AI) adalah kecerdasan buatan." },
+      { q: "Berikut ini yang merupakan contoh penerapan Artificial Intelligence adalah ....", o: ["Kabel UTP", "Switch jaringan", "Router", "ChatGPT", "Flashdisk"], a: 3, e: "ChatGPT merupakan contoh layanan AI generatif." },
+      { q: "Teknologi jaringan seluler generasi kelima disebut ....", o: ["2G", "3G", "4G", "5G", "6G"], a: 3, e: "5G adalah singkatan dari fifth generation atau generasi kelima." },
+      { q: "Salah satu keunggulan utama jaringan 5G dibandingkan generasi sebelumnya adalah ....", o: ["Tidak membutuhkan perangkat jaringan", "Memiliki latensi lebih rendah dan kapasitas lebih besar", "Tidak menggunakan gelombang radio", "Hanya dapat digunakan pada komputer", "Tidak membutuhkan internet"], a: 1, e: "5G dirancang untuk mendukung kapasitas lebih besar dan latensi rendah." },
+      { q: "Teknologi yang memungkinkan pengguna menyimpan dan mengakses data melalui internet disebut ....", o: ["Cloud Computing", "Cybersecurity", "Fiber Optic", "Artificial Intelligence", "Robotics"], a: 0, e: "Cloud computing menyediakan sumber daya komputasi melalui jaringan internet." },
+      { q: "Berikut ini yang merupakan contoh layanan Cloud Storage adalah ....", o: ["WinRAR", "Notepad", "Google Drive", "BIOS", "Command Prompt"], a: 2, e: "Google Drive merupakan layanan penyimpanan file berbasis cloud." },
+      { q: "Internet of Things (IoT) merupakan teknologi yang memiliki konsep ....", o: ["Menghubungkan komputer tanpa jaringan", "Menghapus seluruh data komputer", "Mengganti sistem operasi komputer", "Menghubungkan perangkat fisik melalui jaringan internet", "Mempercepat proses pencetakan dokumen"], a: 3, e: "IoT menghubungkan perangkat fisik agar dapat bertukar data melalui jaringan." },
+      { q: "Contoh penerapan IoT dalam kehidupan sehari-hari adalah ....", o: ["Keyboard biasa", "Mouse kabel", "Flashdisk", "Monitor komputer", "Lampu pintar yang dapat dikendalikan melalui smartphone"], a: 4, e: "Lampu pintar dapat dikendalikan dan dipantau melalui koneksi jaringan." },
+      { q: "Upaya melindungi komputer, jaringan, dan data dari serangan digital disebut ....", o: ["Digital Marketing", "Cybersecurity", "Cloud Storage", "E-Commerce", "Programming"], a: 1, e: "Cybersecurity berfokus pada perlindungan sistem dan data digital." },
+      { q: "Penipuan digital yang bertujuan mencuri informasi pribadi melalui tautan atau pesan palsu disebut ....", o: ["Phishing", "Browsing", "Downloading", "Uploading", "Formatting"], a: 0, e: "Phishing menggunakan pesan atau situs palsu untuk memancing data korban." },
+      { q: "Pembayaran digital di Indonesia yang menggunakan standar kode QR disebut ....", o: ["FTP", "DNS", "DHCP", "QRIS", "HTTP"], a: 3, e: "QRIS adalah standar kode QR pembayaran yang dikembangkan di Indonesia." },
+      { q: "Kegiatan jual beli barang atau jasa melalui internet disebut ....", o: ["Cybersecurity", "Networking", "E-Commerce", "Programming", "Troubleshooting"], a: 2, e: "E-commerce adalah kegiatan perdagangan melalui media elektronik." },
+      { q: "Kendaraan listrik menggunakan komponen utama sebagai penggerak berupa ....", o: ["Mesin diesel", "Motor listrik", "Mesin bensin", "Turbin uap", "Karburator"], a: 1, e: "Motor listrik mengubah energi listrik menjadi energi gerak." },
+      { q: "Teknologi yang memungkinkan satu komputer fisik menjalankan beberapa sistem komputer virtual disebut ....", o: ["Phishing", "Browsing", "Formatting", "Streaming", "Virtualisasi"], a: 4, e: "Virtualisasi memungkinkan pembuatan beberapa lingkungan virtual pada satu perangkat fisik." },
+      { q: "Software yang dapat digunakan untuk membuat komputer virtual adalah ....", o: ["Microsoft Paint", "Google Chrome", "VirtualBox", "Adobe Photoshop", "CorelDraw"], a: 2, e: "VirtualBox adalah perangkat lunak virtualisasi untuk menjalankan mesin virtual." },
+      { q: "Teknologi transmisi data yang menggunakan cahaya melalui serat kaca atau plastik khusus disebut ....", o: ["Bluetooth", "Fiber Optic", "Infrared", "Wi-Fi", "NFC"], a: 1, e: "Fiber optic mengirimkan informasi menggunakan sinyal cahaya." },
+      { q: "Teknologi yang memproses data lebih dekat dengan sumber data untuk mengurangi keterlambatan pengiriman disebut ....", o: ["E-Commerce", "Cloud Storage", "Digital Payment", "Edge Computing", "Social Media"], a: 3, e: "Edge computing memproses data dekat dengan perangkat atau sumber data." },
+      { q: "Berikut ini yang merupakan manfaat penggunaan teknologi dalam bidang pendidikan adalah ....", o: ["Mempermudah akses materi pembelajaran secara online", "Menghilangkan kebutuhan belajar", "Mengurangi sumber informasi", "Menghambat komunikasi guru dan siswa", "Menghilangkan seluruh kegiatan praktik"], a: 0, e: "Teknologi memperluas akses terhadap materi, sumber belajar, dan kolaborasi." },
+      { q: "Sebagai siswa TJKT, keterampilan yang paling relevan untuk menghadapi perkembangan teknologi adalah ....", o: ["Menghindari penggunaan komputer", "Tidak mempelajari jaringan internet", "Mengandalkan teknologi tanpa memahami cara kerjanya", "Mengabaikan keamanan jaringan", "Menguasai jaringan komputer, server, keamanan, dan teknologi terbaru"], a: 4, e: "Kompetensi jaringan, server, keamanan, dan pembelajaran berkelanjutan penting bagi siswa TJKT." }
+    ];
+
+    const questionsEl = document.getElementById("questions");
+    const form = document.getElementById("quizForm");
+    const resultEl = document.getElementById("result");
+    const progressBar = document.getElementById("progressBar");
+    const answeredCount = document.getElementById("answeredCount");
+    let submitted = false;
+
+    function renderQuiz() {
+      submitted = false;
+      resultEl.className = "result";
+      resultEl.innerHTML = "";
+      document.getElementById("submitBtn").disabled = false;
+      document.getElementById("submitBtn").style.opacity = "1";
+      questionsEl.innerHTML = quizData.map((item, i) => `
+        <article class="question" id="question-${i}">
+          <h3>${i + 1}. ${item.q}</h3>
+          ${item.o.map((option, j) => `
+            <label class="option" data-option="${j}">
+              <input type="radio" name="q${i}" value="${j}">
+              <span><strong>${String.fromCharCode(65 + j)}.</strong> ${option}</span>
+            </label>`).join("")}
+          <div class="feedback" id="feedback-${i}"></div>
+        </article>`).join("");
+      form.querySelectorAll('input[type="radio"]').forEach(input => input.addEventListener("change", updateProgress));
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const count = quizData.filter((_, i) => form.querySelector(`input[name="q${i}"]:checked`)).length;
+      answeredCount.textContent = `${count}/${quizData.length} dijawab`;
+      progressBar.style.width = `${count / quizData.length * 100}%`;
+    }
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      if (submitted) return;
+      const answers = quizData.map((_, i) => form.querySelector(`input[name="q${i}"]:checked`));
+      const unanswered = answers.filter(answer => !answer).length;
+      if (unanswered > 0) {
+        alert(`Masih ada ${unanswered} soal yang belum dijawab. Lengkapi semua soal terlebih dahulu.`);
+        const firstEmpty = answers.findIndex(answer => !answer);
+        document.getElementById(`question-${firstEmpty}`).scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      let score = 0;
+      quizData.forEach((item, i) => {
+        const chosen = Number(answers[i].value);
+        const question = document.getElementById(`question-${i}`);
+        question.querySelectorAll(".option").forEach((label, j) => {
+          label.querySelector("input").disabled = true;
+          if (j === item.a) label.classList.add("correct");
+          if (j === chosen && chosen !== item.a) label.classList.add("wrong");
+        });
+        const correct = chosen === item.a;
+        if (correct) score++;
+        document.getElementById(`feedback-${i}`).innerHTML =
+          `${correct ? "✓ Benar." : "✗ Belum tepat."} Jawaban: <strong>${String.fromCharCode(65 + item.a)}. ${item.o[item.a]}</strong><br><span class="muted">${item.e}</span>`;
+      });
+
+      const value = score * 5;
+      let message = value >= 85 ? "Sangat baik! Kamu memahami materi dengan sangat baik." :
+                    value >= 70 ? "Bagus! Terus tingkatkan pemahamanmu." :
+                    value >= 55 ? "Cukup baik. Pelajari kembali bagian yang belum dipahami." :
+                    "Ayo belajar kembali dan coba lagi agar pemahamanmu meningkat.";
+      resultEl.innerHTML = `<div class="score">${value}/100</div><strong>${score} dari 20 jawaban benar</strong><p>${message}</p><p class="small">Jawaban dan pembahasan setiap soal ditampilkan di bawah masing-masing pertanyaan.</p>`;
+      resultEl.classList.add("show");
+      document.getElementById("submitBtn").disabled = true;
+      document.getElementById("submitBtn").style.opacity = ".55";
+      submitted = true;
+      resultEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", function() {
+      renderQuiz();
+      document.getElementById("kuis").scrollIntoView({ behavior: "smooth" });
+    });
+
+    renderQuiz();
+
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll("nav a");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`));
+          }
+        });
+      }, { rootMargin: "-20% 0px -65% 0px" });
+      sections.forEach(section => observer.observe(section));
+    }
+  </script>
+</body>
+</html>
